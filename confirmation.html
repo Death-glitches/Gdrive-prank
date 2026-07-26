@@ -537,15 +537,7 @@
                 confirmBtn.style.position = 'relative';
                 confirmBtn.classList.add('shimmer');
             }, 50);
-        }
-
-        // Micro-interaction for the "Confirm" button
-        confirmBtn.addEventListener('click', () => {
-            confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">refresh</span> Processing...';
-            confirmBtn.classList.add('opacity-80', 'cursor-not-allowed');
-            setTimeout(() => {
-                window.location.reload(); // Simulate success/refresh
-            }, 2000);
+        
         });
     </script>
 </body>
