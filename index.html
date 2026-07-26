@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <title>CloudGlide | Secure Downloads</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="robots" content="index,follow">
+    <meta name="generator" content="GrapesJS Studio">
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Poppins:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#464554",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#b55d00",
+                    "surface-bright": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-tertiary-container": "#fffbff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#c0c1ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#301400",
+                    "on-background": "#0b1c30",
+                    "tertiary": "#904900",
+                    "background": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ddb7ff",
+                    "on-tertiary-fixed-variant": "#703700",
+                    "surface-container-high": "#dce9ff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-tint": "#494bd6",
+                    "on-secondary-container": "#fffbff",
+                    "tertiary-fixed": "#ffdcc5",
+                    "outline": "#767586",
+                    "on-error": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "primary-fixed": "#e1e0ff",
+                    "surface-container": "#e5eeff",
+                    "inverse-primary": "#c0c1ff",
+                    "on-primary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#213145",
+                    "on-secondary-fixed": "#2c0051",
+                    "primary": "#4648d4",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#07006c",
+                    "outline-variant": "#c7c4d7",
+                    "on-primary-fixed-variant": "#2f2ebe",
+                    "tertiary-fixed-dim": "#ffb783",
+                    "secondary-container": "#9c48ea",
+                    "surface-variant": "#d3e4fe",
+                    "secondary-fixed": "#f0dbff",
+                    "secondary": "#8127cf",
+                    "primary-container": "#6063ee",
+                    "on-secondary-fixed-variant": "#6900b3",
+                    "surface-container-low": "#eff4ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "base": "8px",
+                    "xl": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "display": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "poppins": ["Poppins", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        :root {
+            --gjs-t-color-primary: #cf549e;
+            --gjs-t-color-secondary: #b9227d;
+            --gjs-t-color-accent: #ffb347;
+            --gjs-t-color-success: #28a745;
+            --gjs-t-color-warning: #ffc107;
+            --gjs-t-color-error: #dc3545;
+        }
+
+        body {
+            background-color: #121212;
+            font-family: system-ui, sans-serif;
+            color: #e5e2e1;
+            scroll-behavior: smooth;
+            margin: 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e5eeff 50%, #f0dbff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .head {
+            padding: 50px 50px 35px;
+        }
+
+        .logo {
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .card {
+            max-width: 700px;
+            padding: 40px 45px;
+            background-color: white;
+            border-radius: 15px;
+            margin: 0 auto;
+        }
+
+        .title {
+            margin: 0;
+            text-align: center;
+        }
+
+        .gjs-t-body {
+            background-color: inherit;
+            color: inherit;
+            font-size: 1rem;
+            line-height: 1.75rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0;
+            padding: 25px 0;
+        }
+
+        .paragraph {
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        .link {
+            color: #af4e8a;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .gjs-t-h1 {
+            color: var(--gjs-t-color-secondary);
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+        }
+
+        .button {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            text-align: center;
+            border-width: 0;
+        }
+
+        .gjs-t-h2 {
+            color: #601843;
+            font-size: 1.2rem;
+            line-height: 1.75rem;
+        }
+
+        .gjs-t-button {
+            background-color: var(--gjs-t-color-primary);
+            color: white;
+            border-radius: 0.3rem;
+        }
+
+        .gjs-t-link {
+            color: var(--gjs-t-color-primary);
+            text-decoration: underline;
+        }
+
+        .gjs-t-border {
+            border-radius: 0.3rem;
+            border-color: #e0e0e0;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .card-transition {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 179, 173, 0.08);
+            border-color: rgba(255, 179, 173, 0.3);
+        }
+
+        .racing-red-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 84, 81, 0.5);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ff5451;
+            border-radius: 2px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .racing-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 84, 81, 0.4);
+        }
+
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            animation: reveal 1.2s ease-out forwards;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL'0, 'wght'400, 'GRAD'0, 'opsz'24;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 179, 173, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ab8986;
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(255, 179, 173, 0.3);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(135deg, #4648d4 0%, #8127cf 100%);
+            box-shadow: 0 10px 20px -5px rgba(70, 72, 212, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-btn:hover {
+            box-shadow: 0 15px 30px -5px rgba(129, 39, 207, 0.5);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        .floating-emoji {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            will-change: transform;
+            opacity: 0.6;
+        }
+
+        .page-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes reveal {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body id="ik6i" class="font-poppins flex flex-col items-center justify-center">
+    <!-- Top Navigation -->
+    <header
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-white/60 dark:bg-black/60 backdrop-blur-md border-b border-white/20 shadow-sm">
+        <div class="font-headline-md text-headline-md font-bold text-primary" id="ikdllj">BSIT- III Files</div>
+    </header><!-- Main Content Canvas -->
+    <main
+        class="flex-grow flex items-center justify-center px-md w-full max-w-container-max mt-16 page-fade-in relative z-10"
+        id="ixvqnf">
+        <div class="glass-card backdrop-blur-xl rounded-3xl p-8 max-w-md w-full shadow-2xl transition-all duration-500">
+            <!-- Header Image Section -->
+            <div class="relative overflow-hidden rounded-2xl mb-6 shadow-lg bg-surface-container-low aspect-square"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYO1-kQ4UqPJkbTo56uaNgwb_TS2i6fau9IId1CJ8nevn5JEKhkabFWhnU5otOz6SL8xD3PbrcSmDJ6t8_Lx2SRedZGnF5d89hB9CeEV6nP93QuZpTG2TUAKnCUwFM0JV-nvVuYoKao_2vGchqkVb2vYPZpCPdTpu4_PvsTniWSwhe2fR09R19m9bRjndvPZaD7CetZpLLx8Q7D3quM0826Fd2Zw8aU-uf8dHYKfgtBON0zfmv-wC33zhpQlDG7S5Fwl5VUvZS26g5" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+            </div><!-- Content Details -->
+            <div class="text-center mb-8">
+                <h1 class="text-headline-md font-bold text-on-surface mb-xs">Ready for Download</h1>
+                <div class="mt-4 flex justify-center gap-xs"></div>
+            </div>
+            <!-- Main CTA Button --><button type="button" 
+             onclick="window.location.href='confirmation.html';"
+            id="downloadBtn" class="gradient-btn w-full py-4 rounded-2xl text-white font-bold text-body-lg flex items-center justify-center gap-2 active:scale-95 group relative overflow-hidden"><span id="btnIcon" class="material-symbols-outlined">download</span><span id="btnText">Download Now</span><div id="btnSpinner" class="hidden spinner"></div><div class="absolute inset-0 shimmer pointer-events-none"></div></button>
+            <!-- Secondary Info -->
+        </div>
+    </main><!-- Footer -->
+    <!-- Background Decoration Container -->
+    <div id="emoji-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+    <script>
+        /**
+         * Global Configuration
+         */
+        const CONFIG = {
+            files: [
+                { name: "Assets_Part_1.zip", url: "#", delay: 1500 },
+                { name: "Style_Guide.pdf", url: "#", delay: 1200 },
+                { name: "Documentation.md", url: "#", delay: 1000 }
+            ],
+            emojis: ['✨', '🎉', '🎈', '❤️', '⭐', '😊', '🚀', '☁️'],
+            emojiCount: 15
+        };
+
+        /**
+         * Emoji Animation Logic
+         */
+        class FloatingEmoji {
+            constructor() {
+                this.element = document.createElement('div');
+                this.element.className = 'floating-emoji';
+                this.element.innerText = CONFIG.emojis[Math.floor(Math.random() * CONFIG.emojis.length)];
+                
+                this.reset();
+                document.getElementById('emoji-container').appendChild(this.element);
+            }
+
+            reset() {
+                this.x = Math.random() * window.innerWidth;
+                this.y = window.innerHeight + 50;
+                this.speed = 1 + Math.random() * 2;
+                this.amplitude = 10 + Math.random() * 30;
+                this.frequency = 0.002 + Math.random() * 0.005;
+                this.rotation = 0;
+                this.rotationSpeed = (Math.random() - 0.5) * 2;
+                this.size = 20 + Math.random() * 30;
+                this.element.style.fontSize = `${this.size}px`;
+                this.timeOffset = Math.random() * 10000;
+            }
+
+            update(time) {
+                this.y -= this.speed;
+                const wave = Math.sin((time + this.timeOffset) * this.frequency) * this.amplitude;
+                this.rotation += this.rotationSpeed;
+
+                this.element.style.transform = `translate3d(${this.x + wave}px, ${this.y}px, 0) rotate(${this.rotation}deg)`;
+
+                if (this.y < -100) {
+                    this.reset();
+                }
+            }
+        }
+
+        const floatingObjects = Array.from({ length: CONFIG.emojiCount }, () => new FloatingEmoji());
+
+        function animate(time) {
+            floatingObjects.forEach(obj => obj.update(time));
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+
+        /**
+         * Sequential Download Logic
+         */
+        const btn = document.getElementById('downloadBtn');
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnSpinner = document.getElementById('btnSpinner');
+
+       
+          
+        
+
+        
+        
+
+        // Responsive handling for background items
+        window.addEventListener('resize', () => {
+            floatingObjects.forEach(obj => {
+                if (obj.x > window.innerWidth) obj.x = Math.random() * window.innerWidth;
+            });
+        });
+    </script>
+</body>
+
+</html>

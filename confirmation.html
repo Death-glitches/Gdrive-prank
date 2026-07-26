@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <title>CloudGlide | Confirmation Required</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="robots" content="index,follow" />
+    <meta name="generator" content="GrapesJS Studio" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#e1e0ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface-tint": "#494bd6",
+                        "surface-container": "#e5eeff",
+                        "secondary": "#8127cf",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed": "#f0dbff",
+                        "outline": "#767586",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "on-primary-container": "#fffbff",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#b55d00",
+                        "outline-variant": "#c7c4d7",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#4648d4",
+                        "on-primary-fixed": "#07006c",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#904900",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "on-secondary-fixed": "#2c0051",
+                        "on-surface-variant": "#464554",
+                        "inverse-primary": "#c0c1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-high": "#dce9ff",
+                        "surface-dim": "#cbdbf5",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdcc5",
+                        "secondary-container": "#9c48ea",
+                        "on-tertiary-fixed": "#301400",
+                        "on-error": "#ffffff",
+                        "primary-container": "#6063ee",
+                        "inverse-surface": "#213145",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "display": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        :root {
+            --gjs-t-color-primary: #cf549e;
+            --gjs-t-color-secondary: #b9227d;
+            --gjs-t-color-accent: #ffb347;
+            --gjs-t-color-success: #28a745;
+            --gjs-t-color-warning: #ffc107;
+            --gjs-t-color-error: #dc3545;
+        }
+
+        body {
+            background-color: #121212;
+            font-family: system-ui, sans-serif;
+            color: #e5e2e1;
+            scroll-behavior: smooth;
+            margin: 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e1e0ff 50%, #f0dbff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .head {
+            padding: 50px 50px 35px;
+        }
+
+        .logo {
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .card {
+            max-width: 700px;
+            padding: 40px 45px;
+            background-color: white;
+            border-radius: 15px;
+            margin: 0 auto;
+        }
+
+        .title {
+            margin: 0;
+            text-align: center;
+        }
+
+        .gjs-t-body {
+            background-color: inherit;
+            color: inherit;
+            font-size: 1rem;
+            line-height: 1.75rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin: 0;
+            padding: 25px 0;
+        }
+
+        .paragraph {
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        .link {
+            color: #af4e8a;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .gjs-t-h1 {
+            color: var(--gjs-t-color-secondary);
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+        }
+
+        .button {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            text-align: center;
+            border-width: 0;
+        }
+
+        .gjs-t-h2 {
+            color: #601843;
+            font-size: 1.2rem;
+            line-height: 1.75rem;
+        }
+
+        .gjs-t-button {
+            background-color: var(--gjs-t-color-primary);
+            color: white;
+            border-radius: 0.3rem;
+        }
+
+        .gjs-t-link {
+            color: var(--gjs-t-color-primary);
+            text-decoration: underline;
+        }
+
+        .gjs-t-border {
+            border-radius: 0.3rem;
+            border-color: #e0e0e0;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .card-transition {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 179, 173, 0.08);
+            border-color: rgba(255, 179, 173, 0.3);
+        }
+
+        .racing-red-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 84, 81, 0.5);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ff5451;
+            border-radius: 2px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .racing-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 84, 81, 0.4);
+        }
+
+        .reveal-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            animation: reveal 1.2s ease-out forwards;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL'0, 'wght'400, 'GRAD'0, 'opsz'24;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px 0 rgba(70, 72, 212, 0.1);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 179, 173, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ab8986;
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 15px rgba(255, 179, 173, 0.3);
+        }
+
+        .gradient-btn {
+            background: linear-gradient(135deg, #4648d4 0%, #8127cf 100%);
+            box-shadow: 0 10px 20px -5px rgba(70, 72, 212, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-btn:hover {
+            box-shadow: 0 15px 30px -5px rgba(129, 39, 207, 0.5);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            will-change: transform;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .page-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        .progress-ring {
+            transition: stroke-dashoffset 1s linear;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+
+        #flee-button {
+            transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        @keyframes reveal {
+            from {
+                transform: translateY(100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+
+<body id="ik6i" class="flex flex-col">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg h-16 bg-white/60 dark:bg-black/60 backdrop-blur-md shadow-sm border-b border-white/20">
+        <div class="font-headline-md text-headline-md font-bold text-primary" id="i2l7j">BSIT-III Files</div>
+        <div class="md:hidden"><span class="material-symbols-outlined text-primary">menu</span></div>
+    </nav><!-- Main Content -->
+    <main id="i0g85a" class="flex-grow flex items-center justify-center relative px-md py-xl pt-32">
+        <!-- Floating Elements Layer -->
+        <div id="floating-elements-container" class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Programmatically filled for consistency -->
+        </div><!-- Central Confirmation Card -->
+        <div
+            class="glass-card relative z-10 w-full max-w-[500px] rounded-xl p-lg text-center flex flex-col items-center gap-md">
+            <div class="w-24 h-24 mb-sm relative"><img data-alt="A 3D glassmorphic folder icon with a soft blue tint, floating amidst pastel colored geometric shapes like spheres and stars. High-end professional render style, light mode, soft shadows, airy and digital lightness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJAOcd9f7V8vKhQg0uRdOtp5d_ADs5Kvk4HSR2uJOguP51KOpc0k_43Pe8iWbM3G3FcvmzWDBFiaU_uhJ3D2tq9ZW83qCq8YVe6VRSbW0n3FdyPXdHYafTQ9DPJ3rAac2gtvoZXSY1iVSB5XbYmLbFCD1cx6WfBrCieVhzcTx1AQfXLuawJKY3g5PTrdn3wDgoHAxSo-ICiBh-FT5FtUBUW7OHq-uzLJ61soHeY2QYS_-2_JyLKAYPyQby6-frXgIklEPIpsmY6TZH" class="w-full h-full object-contain"/>
+            </div>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface">Are you sure you want to proceed?</h1>
+            <!-- Timer Section -->
+            <div class="flex items-center gap-sm mt-sm">
+                <div class="relative w-12 h-12 flex items-center justify-center"><svg class="w-full h-full">
+                        <circle cx="24" cy="24" fill="transparent" r="20" stroke="currentColor" stroke-width="4"
+                            class="text-outline-variant opacity-20"></circle>
+                        <circle cx="24" cy="24" fill="transparent" id="timer-ring" r="20" stroke="currentColor"
+                            stroke-dasharray="126" stroke-dashoffset="0" stroke-width="4"
+                            class="progress-ring text-primary"></circle>
+                    </svg><span id="seconds-text" class="absolute font-label-md text-label-md text-primary">15s</span>
+                </div>
+                <span class="font-label-md text-label-md text-on-surface-variant">Proceed in: <span id="timer-display">15</span>s</span>
+            </div><!-- Interaction Area -->
+            <div id="button-container"
+                class="relative w-full h-32 flex items-center justify-center mt-md overflow-visible">
+                <button type="button"
+                onclick="window.location.href='https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link';"
+                id="flee-button" class="px-xl py-md bg-secondary-container text-on-secondary font-label-md text-label-md rounded-full shadow-lg hover:shadow-secondary/20 transition-all active:scale-95 group"><span class="relative z-10">Yes</span><div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 rounded-full transition-opacity"></div></button><button type="button" id="confirm-button" class="hidden absolute px-xl py-md bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all opacity-0">
+                    Confirm and Continue
+                </button></div>
+        </div>
+    </main><!-- Footer -->
+    <script>
+        // Floating Elements Logic
+        const container = document.getElementById('floating-elements-container');
+        const symbols = ['verified', 'lock', 'cloud_upload', 'description', 'star', 'rocket_launch'];
+        const colors = ['text-primary', 'text-secondary', 'text-tertiary', 'text-primary-fixed-dim'];
+        
+        for(let i = 0; i < 15; i++) {
+            const span = document.createElement('span');
+            span.className = `material-symbols-outlined floating-emoji ${colors[Math.floor(Math.random() * colors.length)]} text-4xl opacity-20`;
+            span.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            span.style.left = `${Math.random() * 100}%`;
+            span.style.top = `${Math.random() * 100}%`;
+            span.style.animationDelay = `${Math.random() * 5}s`;
+            span.style.fontSize = `${Math.random() * (48 - 24) + 24}px`;
+            container.appendChild(span);
+        }
+
+        // Fleeing Button Logic
+        const fleeBtn = document.getElementById('flee-button');
+        const btnContainer = document.getElementById('button-container');
+
+       fleeBtn.addEventListener('mouseover', () => {
+    const moveDistance = 200; // Maximum pixels to move
+    const margin = 20;
+
+    fleeBtn.style.position = 'fixed';
+    fleeBtn.style.zIndex = '1000';
+    fleeBtn.style.right = 'auto';
+    fleeBtn.style.bottom = 'auto';
+    fleeBtn.style.transform = 'none';
+
+    const width = fleeBtn.offsetWidth;
+    const height = fleeBtn.offsetHeight;
+
+    let x = fleeBtn.offsetLeft + (Math.random() * 2 - 1) * moveDistance;
+    let y = fleeBtn.offsetTop + (Math.random() * 2 - 1) * moveDistance;
+
+    // Keep it inside the viewport
+    x = Math.max(margin, Math.min(x, window.innerWidth - width - margin));
+    y = Math.max(margin, Math.min(y, window.innerHeight - height - margin));
+
+    fleeBtn.style.left = `${x}px`;
+    fleeBtn.style.top = `${y}px`;
+});
+
+        // Timer Logic
+        let seconds = 15;
+        const timerDisplay = document.getElementById('timer-display');
+        const secondsText = document.getElementById('seconds-text');
+        const timerRing = document.getElementById('timer-ring');
+        const confirmBtn = document.getElementById('confirm-button');
+        const circum = 2 * Math.PI * 20;
+
+        const countdown = setInterval(() => {
+            seconds--;
+            timerDisplay.textContent = seconds;
+            secondsText.textContent = `${seconds}s`;
+            
+            // Update progress ring
+            const offset = circum - (seconds / 15) * circum;
+            timerRing.style.strokeDashoffset = offset;
+
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                finishTimer();
+            }
+        }, 1000);
+
+        function finishTimer() {
+            fleeBtn.style.display = 'none';
+            confirmBtn.classList.remove('hidden');
+            setTimeout(() => {
+                confirmBtn.style.opacity = '1';
+                confirmBtn.style.position = 'relative';
+                confirmBtn.classList.add('shimmer');
+            }, 50);
+        }
+
+        // Micro-interaction for the "Confirm" button
+        confirmBtn.addEventListener('click', () => {
+            confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">refresh</span> Processing...';
+            confirmBtn.classList.add('opacity-80', 'cursor-not-allowed');
+            setTimeout(() => {
+                window.location.reload(); // Simulate success/refresh
+            }, 2000);
+        });
+    </script>
+</body>
+
+</html>
