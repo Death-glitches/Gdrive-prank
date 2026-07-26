@@ -454,9 +454,7 @@
                 class="relative w-full h-32 flex items-center justify-center mt-md overflow-visible">
                 <button type="button"
                 onclick="window.location.href='https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link';"
-                id="flee-button" 
-                    onclick="window.location.href='https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link';"
-                    class="px-xl py-md bg-secondary-container text-on-secondary font-label-md text-label-md rounded-full shadow-lg hover:shadow-secondary/20 transition-all active:scale-95 group"><span class="relative z-10">Yes</span><div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 rounded-full transition-opacity"></div></button><button type="button" id="confirm-button" class="hidden absolute px-xl py-md bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all opacity-0">
+                id="flee-button" class="px-xl py-md bg-secondary-container text-on-secondary font-label-md text-label-md rounded-full shadow-lg hover:shadow-secondary/20 transition-all active:scale-95 group"><span class="relative z-10">Yes</span><div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 rounded-full transition-opacity"></div></button><button type="button" id="confirm-button" class="hidden absolute px-xl py-md bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all opacity-0">
                     Confirm and Continue
                 </button></div>
         </div>
@@ -537,7 +535,15 @@
                 confirmBtn.style.position = 'relative';
                 confirmBtn.classList.add('shimmer');
             }, 50);
-        
+        }
+
+        // Micro-interaction for the "Confirm" button
+        confirmBtn.addEventListener('click', () => {
+            confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">refresh</span> Processing...';
+            confirmBtn.classList.add('opacity-80', 'cursor-not-allowed');
+            setTimeout(() => {
+                window.location.href = "https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link"; // Simulate success/refresh
+            }, 2000);
         });
     </script>
 </body>
