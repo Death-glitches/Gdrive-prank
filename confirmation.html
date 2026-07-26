@@ -418,6 +418,30 @@
                 transform: translateY(-20px) rotate(10deg);
             }
         }
+        .floating-gif {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: floatUp 2s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-80px) scale(1);
+    }
+
+    100% {
+        transform: translateY(-150px) scale(1.1);
+        opacity: 0;
+    }
+}
     </style>
 </head>
 
@@ -551,6 +575,30 @@ fleeBtn.addEventListener('click', (e) => {
                 window.location.href = "https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link"; // Simulate success/refresh
             }, 2000);
         });
+        function spawnGif(x, y) {
+    const gif = document.createElement("img");
+
+    gif.src = "meong-cat.gif"; // Change to your GIF path
+    gif.className = "floating-gif";
+
+    gif.style.left = `${x - 40}px`;
+    gif.style.top = `${y - 40}px`;
+
+    document.body.appendChild(gif);
+
+    // Remove after animation
+    setTimeout(() => gif.remove(), 2000);
+}
+
+fleeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Spawn GIF at mouse click
+    spawnGif(e.clientX, e.clientY);
+
+    // Existing flee logic
+    moveFleeButton();
+});
     </script>
 </body>
 
