@@ -453,7 +453,7 @@
             <div id="button-container"
                 class="relative w-full h-32 flex items-center justify-center mt-md overflow-visible">
                 <button type="button"
-                onclick="window.location.href='https://drive.google.com/drive/folders/1Zs8z1YIGjmG3e9R9RE3SBHbjEYPaaUEH?usp=drive_link';"
+                
                 id="flee-button" class="px-xl py-md bg-secondary-container text-on-secondary font-label-md text-label-md rounded-full shadow-lg hover:shadow-secondary/20 transition-all active:scale-95 group"><span class="relative z-10">Yes</span><div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 rounded-full transition-opacity"></div></button><button type="button" id="confirm-button" class="hidden absolute px-xl py-md bg-primary text-on-primary font-label-md text-label-md rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all opacity-0">
                     Confirm and Continue
                 </button></div>
@@ -480,8 +480,8 @@
         const fleeBtn = document.getElementById('flee-button');
         const btnContainer = document.getElementById('button-container');
 
-       fleeBtn.addEventListener('mouseover', () => {
-    const moveDistance = 200; // Maximum pixels to move
+       function moveFleeButton() {
+    const moveDistance = 200;
     const margin = 20;
 
     fleeBtn.style.position = 'fixed';
@@ -502,6 +502,12 @@
 
     fleeBtn.style.left = `${x}px`;
     fleeBtn.style.top = `${y}px`;
+}
+
+fleeBtn.addEventListener('mouseover', moveFleeButton);
+fleeBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevents any default action
+    moveFleeButton();
 });
 
         // Timer Logic
